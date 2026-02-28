@@ -1,303 +1,465 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDHAA | Structured Weekend Experiences for Kids</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EDHAA | Structured Weekend Experiences for Kids</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <style>
-        :root {
-            --primary: #1F3C88;
-            --accent: #00A8B5;
-            --light-bg: #EEF2F7;
-            --text-dark: #1f2937;
-        }
+<style>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
 
-        html { scroll-behavior: smooth; }
+body{
+background:#EEF2F7;
+color:#1f2937;
+overflow-x:hidden;
+}
 
-        body {
-            background: var(--light-bg);
-            color: var(--text-dark);
-            line-height: 1.5;
-        }
+/* ================= HEADER ================= */
 
-        /* ================= BASE / MOBILE NAVIGATION ================= */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5%;
-            background: white;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:white;
+box-shadow:0 4px 20px rgba(0,0,0,0.05);
+position:fixed;
+width:100%;
+z-index:1000;
+}
 
-        .logo {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--primary);
-        }
+.logo{
+font-size:26px;
+font-weight:700;
+color:#1F3C88;
+}
 
-        .menu-toggle {
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--primary);
-            background: none;
-            border: none;
-        }
+nav a{
+margin-left:30px;
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:0.3s;
+}
 
-        /* Mobile Nav default: Hidden */
-        nav { display: none; }
+nav a:hover{
+color:#00A8B5;
+}
 
-        .mobile-nav {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background: white;
-            flex-direction: column;
-            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-            border-top: 1px solid #eee;
-        }
+/* ================= HERO ================= */
 
-        .mobile-nav a {
-            padding: 20px;
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            border-bottom: 1px solid #f9f9f9;
-        }
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:0 20px;
+background:
+linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
+url('https://images.unsplash.com/photo-1596464716127-f2a82984de30');
+background-size:cover;
+background-position:center;
+color:white;
+}
 
-        /* ================= MOBILE-FIRST SECTIONS ================= */
-        section { padding: 60px 5%; }
+.hero h1{
+font-size:52px;
+margin-bottom:20px;
+}
 
-        /* HERO - Optimized for Mobile */
-        .hero {
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 120px 20px 60px 20px;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-        }
+.hero p{
+font-size:20px;
+margin-bottom:35px;
+max-width:700px;
+margin:auto;
+}
 
-        .hero h1 {
-            font-size: clamp(26px, 8vw, 52px);
-            line-height: 1.2;
-            margin-bottom: 15px;
-        }
+.btn{
+display:inline-block;
+padding:15px 35px;
+background:#00A8B5;
+color:white;
+font-weight:600;
+border-radius:40px;
+text-decoration:none;
+transition:0.3s;
+}
 
-        .hero p {
-            font-size: 16px;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-inline: auto;
-        }
+.btn:hover{
+background:#1F3C88;
+}
 
-        .btn {
-            display: inline-block;
-            padding: 16px 32px;
-            background: var(--accent);
-            color: white;
-            font-weight: 600;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 168, 181, 0.3);
-        }
+section{
+padding:120px 8%;
+}
 
-        .section-title {
-            font-size: 26px;
-            text-align: center;
-            color: var(--primary);
-            margin-bottom: 30px;
-        }
+.section-title{
+font-size:38px;
+margin-bottom:20px;
+text-align:center;
+color:#1F3C88;
+}
 
-        /* GRID SYSTEM (Default: Single Column) */
-        .grid, .events-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
+.section-sub{
+text-align:center;
+max-width:750px;
+margin:0 auto 60px auto;
+color:#555;
+font-size:18px;
+}
 
-        .card, .event-card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
+/* ================= GRID ================= */
 
-        .card h3, .event-card h3 {
-            color: var(--accent);
-            margin-bottom: 10px;
-        }
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:40px;
+}
 
-        /* EVENT SPECIFIC */
-        .event-card {
-            position: relative;
-            margin-top: 15px;
-            padding-top: 40px;
-        }
+.card{
+background:white;
+padding:35px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
 
-        .event-date {
-            position: absolute;
-            top: -15px;
-            left: 20px;
-            background: var(--primary);
-            color: white;
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
+.card h3{
+margin-bottom:15px;
+color:#00A8B5;
+}
 
-        .cta { text-align: center; padding: 80px 5%; }
+/* ================= EVENTS ================= */
 
-        footer {
-            background: var(--primary);
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-        }
+.events-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:40px;
+margin-top:60px;
+}
 
-        footer a { color: white; margin: 0 15px; font-size: 22px; }
+.event-card{
+background:#f9fbff;
+border-radius:20px;
+padding:30px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+position:relative;
+transition:0.3s;
+}
 
-        /* ================= DESKTOP ADAPTATIONS (min-width: 768px) ================= */
-        @media (min-width: 768px) {
-            header { padding: 20px 8%; }
-            .menu-toggle { display: none; }
-            
-            nav { display: flex; }
-            nav a {
-                margin-left: 35px;
-                text-decoration: none;
-                color: var(--text-dark);
-                font-weight: 500;
-                transition: 0.3s;
-            }
-            nav a:hover { color: var(--accent); }
+.event-card:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
 
-            section { padding: 100px 8%; }
-            .section-title { font-size: 38px; }
+.event-date{
+position:absolute;
+top:-20px;
+left:20px;
+background:#1F3C88;
+color:white;
+padding:10px 18px;
+border-radius:30px;
+font-size:14px;
+font-weight:600;
+}
 
-            .grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
-            .events-grid { grid-template-columns: repeat(2, 1fr); }
-        }
+.event-card h3{
+margin-top:30px;
+margin-bottom:15px;
+color:#00A8B5;
+}
 
-        @media (min-width: 1024px) {
-            .grid { grid-template-columns: repeat(4, 1fr); }
-        }
-    </style>
+.event-location{
+font-size:14px;
+color:#1F3C88;
+font-weight:600;
+}
+
+/* ================= BOOK ================= */
+
+.book-section{
+padding:160px 8%;
+text-align:center;
+background:radial-gradient(circle at center,#f5f7fa,#e3e8f0);
+}
+
+.book-wrapper{
+display:flex;
+justify-content:center;
+perspective:5000px;
+}
+
+.book{
+width:520px;
+height:360px;
+position:relative;
+transform-style:preserve-3d;
+}
+
+.page{
+position:absolute;
+width:100%;
+height:100%;
+transform-origin:left;
+transform-style:preserve-3d;
+transition:transform 1.2s cubic-bezier(.65,.05,.36,1);
+cursor:pointer;
+}
+
+.page .front,
+.page .back{
+position:absolute;
+width:100%;
+height:100%;
+backface-visibility:hidden;
+border-radius:8px;
+box-shadow:0 25px 60px rgba(0,0,0,0.25);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:40px;
+background:white;
+}
+
+.page .back{
+transform:rotateY(180deg);
+background:#f3f3f3;
+}
+
+.cover .front{
+padding:0;
+overflow:hidden;
+}
+
+.cover-img{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:8px;
+}
+
+.cover-text{
+position:absolute;
+bottom:30px;
+left:30px;
+color:white;
+text-shadow:0 5px 20px rgba(0,0,0,0.7);
+}
+
+.page:nth-child(1){z-index:6;}
+.page:nth-child(2){z-index:5;}
+.page:nth-child(3){z-index:4;}
+.page:nth-child(4){z-index:3;}
+.page:nth-child(5){z-index:2;}
+.page:nth-child(6){z-index:1;}
+
+.page.flipped{
+transform:rotateY(-180deg);
+}
+
+/* ================= CTA ================= */
+
+.cta{
+text-align:center;
+padding:100px 20px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+background:#1F3C88;
+color:white;
+text-align:center;
+padding:50px 20px;
+}
+
+footer a{
+color:white;
+margin:0 12px;
+font-size:24px;
+}
+
+/* ================= MOBILE FIX ================= */
+
+@media(max-width:768px){
+
+header{
+padding:15px 5%;
+flex-direction:column;
+}
+
+nav{
+margin-top:10px;
+}
+
+nav a{
+margin:8px 12px;
+}
+
+.hero{
+height:80vh;
+}
+
+.hero h1{
+font-size:28px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+section{
+padding:70px 5%;
+}
+
+.section-title{
+font-size:26px;
+}
+
+.section-sub{
+font-size:15px;
+margin-bottom:30px;
+}
+
+.events-grid{
+grid-template-columns:1fr;
+}
+
+.book{
+width:100%;
+max-width:320px;
+height:260px;
+}
+
+.page .front,
+.page .back{
+padding:20px;
+}
+
+.cta{
+padding:70px 5%;
+}
+
+footer{
+padding:35px 15px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-    <div class="logo">EDHAA</div>
-    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle Menu">
-        <i class="fas fa-bars"></i>
-    </button>
-    <nav>
-        <a href="#solution">Solution</a>
-        <a href="#events">Events</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    <div class="mobile-nav" id="mobileNav">
-        <a href="#solution" onclick="toggleMenu()">Solution</a>
-        <a href="#events" onclick="toggleMenu()">Events</a>
-        <a href="#contact" onclick="toggleMenu()">Contact</a>
-    </div>
+<div class="logo">EDHAA</div>
+<nav>
+<a href="#solution">Solution</a>
+<a href="#events">Events</a>
+<a href="#story">Our Story</a>
+<a href="#contact">Contact</a>
+</nav>
 </header>
 
 <section class="hero">
-    <div>
-        <h1>Structured Weekend Experiences for Children</h1>
-        <p>Society-based, facilitator-led sessions in Pune designed to build confidence and creativity in kids aged 6–14.</p>
-        <a href="https://wa.me/918262909710" target="_blank" class="btn">Book a Demo Session</a>
-    </div>
+<div>
+<h1>Structured Weekend Experiences for Children Aged 6–14</h1>
+<p>Society-based, facilitator-led sessions in Pune designed to build confidence and creativity.</p>
+<a href="https://wa.me/918262909710" target="_blank" class="btn">Book a Demo Session</a>
+</div>
 </section>
 
 <section id="solution">
-    <h2 class="section-title">The EDHAA Solution</h2>
-    <div class="grid">
-        <div class="card">
-            <h3><i class="fas fa-microphone"></i> Confidence</h3>
-            <p>Public speaking and leadership activities that kids actually enjoy.</p>
-        </div>
-        <div class="card">
-            <h3><i class="fas fa-users"></i> Interaction</h3>
-            <p>Moving away from screens to real offline friendships.</p>
-        </div>
-        <div class="card">
-            <h3><i class="fas fa-user-shield"></i> Facilitator Led</h3>
-            <p>Expertly guided sessions that ensure every child participates.</p>
-        </div>
-        <div class="card">
-            <h3><i class="fas fa-building"></i> Inside Societies</h3>
-            <p>Convenient weekend activities right at your clubhouse.</p>
-        </div>
-    </div>
+<h2 class="section-title">The EDHAA Solution</h2>
+<div class="grid">
+<div class="card"><h3>Confidence Development</h3><p>Public speaking and leadership activities.</p></div>
+<div class="card"><h3>Real Interaction</h3><p>Offline friendships and team engagement.</p></div>
+<div class="card"><h3>Facilitator Led</h3><p>Structured, safe and impactful sessions.</p></div>
+<div class="card"><h3>Inside Societies</h3><p>Convenient and community-driven model.</p></div>
+</div>
 </section>
 
-<section id="events" style="background: #f9fbff;">
-    <h2 class="section-title">Upcoming Events</h2>
-    <div class="events-grid">
-        <div class="event-card">
-            <div class="event-date">15 Feb 2026</div>
-            <h3>Confidence Building Workshop</h3>
-            <p>Interactive leadership games for kids.</p>
-            <div style="margin-top:10px; font-weight:600;"><i class="fas fa-map-marker-alt"></i> Baner, Pune</div>
-        </div>
+<section id="events">
+<h2 class="section-title">Upcoming Events</h2>
 
-        <div class="event-card">
-            <div class="event-date">22 Feb 2026</div>
-            <h3>Creative Thinking Lab</h3>
-            <p>Fun imagination challenges and team puzzles.</p>
-            <div style="margin-top:10px; font-weight:600;"><i class="fas fa-map-marker-alt"></i> Wakad, Pune</div>
-        </div>
-    </div>
+<div class="events-grid">
+<div class="event-card">
+<div class="event-date">15 Feb 2026</div>
+<h3>Confidence Building Workshop</h3>
+<p>Interactive leadership games for kids.</p>
+<div class="event-location">📍 Baner, Pune</div>
+</div>
+
+<div class="event-card">
+<div class="event-date">22 Feb 2026</div>
+<h3>Creative Thinking Lab</h3>
+<p>Fun imagination challenges.</p>
+<div class="event-location">📍 Wakad, Pune</div>
+</div>
+</div>
+</section>
+
+<section id="story" class="book-section">
+<h2 class="section-title">Our Story</h2>
+
+<div class="book-wrapper">
+<div class="book">
+
+<div class="page cover">
+<div class="front">
+<img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f" class="cover-img">
+<div class="cover-text"><h2>EDHAA</h2></div>
+</div>
+<div class="back"></div>
+</div>
+
+<div class="page">
+<div class="front"><h3>The Observation</h3><p>Children spending weekends on screens.</p></div>
+<div class="back"></div>
+</div>
+
+<div class="page">
+<div class="front"><h3>The Vision</h3><p>Structured joyful growth.</p></div>
+<div class="back"></div>
+</div>
+
+</div>
+</div>
 </section>
 
 <section id="contact" class="cta">
-    <h2 class="section-title">Bring EDHAA To Your Society</h2>
-    <p style="margin-bottom:30px;">Partner with us to transform your society's weekends.</p>
-    <a href="https://wa.me/918262909710" target="_blank" class="btn">Start a Conversation</a>
+<h2 class="section-title">Bring EDHAA To Your Society</h2>
+<a href="https://wa.me/918262909710" target="_blank" class="btn">Start a Conversation</a>
 </section>
 
 <footer>
-    <p>© 2026 EDHAA | Pune</p>
-    <p style="margin: 15px 0; font-size: 14px;">edhaa22@gmail.com | +91 8262909710</p>
-    <div style="margin-top:20px;">
-        <a href="https://www.instagram.com/edhaa.10" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/918262909710" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="mailto:edhaa22@gmail.com"><i class="fas fa-envelope"></i></a>
-    </div>
+<p>© 2026 EDHAA | Pune</p>
+<p style="margin-top:10px;">edhaa22@gmail.com | +91 8262909710</p>
+<br>
+<a href="https://www.instagram.com/edhaa.10" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="https://wa.me/918262909710" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="mailto:edhaa22@gmail.com"><i class="fas fa-envelope"></i></a>
 </footer>
 
 <script>
-    function toggleMenu(){
-        const nav = document.getElementById("mobileNav");
-        nav.style.display = (nav.style.display === "flex") ? "none" : "flex";
-    }
+const pages = document.querySelectorAll(".page");
+pages.forEach((page, index) => {
+page.addEventListener("click", () => {
+page.classList.add("flipped");
+page.style.zIndex = index;
+});
+});
 </script>
 
 </body>
