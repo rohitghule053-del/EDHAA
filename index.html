@@ -9,7 +9,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-
 *{
 margin:0;
 padding:0;
@@ -43,6 +42,10 @@ font-weight:700;
 color:#1F3C88;
 }
 
+nav{
+display:flex;
+}
+
 nav a{
 margin-left:30px;
 text-decoration:none;
@@ -53,6 +56,16 @@ transition:0.3s;
 
 nav a:hover{
 color:#00A8B5;
+}
+
+.menu-toggle{
+display:none;
+font-size:26px;
+cursor:pointer;
+}
+
+.mobile-nav{
+display:none;
 }
 
 /* ================= HERO ================= */
@@ -108,14 +121,6 @@ font-size:38px;
 margin-bottom:20px;
 text-align:center;
 color:#1F3C88;
-}
-
-.section-sub{
-text-align:center;
-max-width:750px;
-margin:0 auto 60px auto;
-color:#555;
-font-size:18px;
 }
 
 /* ================= GRID ================= */
@@ -179,95 +184,6 @@ margin-bottom:15px;
 color:#00A8B5;
 }
 
-.event-location{
-font-size:14px;
-color:#1F3C88;
-font-weight:600;
-}
-
-/* ================= BOOK ================= */
-
-.book-section{
-padding:160px 8%;
-text-align:center;
-background:radial-gradient(circle at center,#f5f7fa,#e3e8f0);
-}
-
-.book-wrapper{
-display:flex;
-justify-content:center;
-perspective:5000px;
-}
-
-.book{
-width:520px;
-height:360px;
-position:relative;
-transform-style:preserve-3d;
-}
-
-.page{
-position:absolute;
-width:100%;
-height:100%;
-transform-origin:left;
-transform-style:preserve-3d;
-transition:transform 1.2s cubic-bezier(.65,.05,.36,1);
-cursor:pointer;
-}
-
-.page .front,
-.page .back{
-position:absolute;
-width:100%;
-height:100%;
-backface-visibility:hidden;
-border-radius:8px;
-box-shadow:0 25px 60px rgba(0,0,0,0.25);
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-padding:40px;
-background:white;
-}
-
-.page .back{
-transform:rotateY(180deg);
-background:#f3f3f3;
-}
-
-.cover .front{
-padding:0;
-overflow:hidden;
-}
-
-.cover-img{
-width:100%;
-height:100%;
-object-fit:cover;
-border-radius:8px;
-}
-
-.cover-text{
-position:absolute;
-bottom:30px;
-left:30px;
-color:white;
-text-shadow:0 5px 20px rgba(0,0,0,0.7);
-}
-
-.page:nth-child(1){z-index:6;}
-.page:nth-child(2){z-index:5;}
-.page:nth-child(3){z-index:4;}
-.page:nth-child(4){z-index:3;}
-.page:nth-child(5){z-index:2;}
-.page:nth-child(6){z-index:1;}
-
-.page.flipped{
-transform:rotateY(-180deg);
-}
-
 /* ================= CTA ================= */
 
 .cta{
@@ -290,21 +206,46 @@ margin:0 12px;
 font-size:24px;
 }
 
-/* ================= MOBILE FIX ================= */
+/* ================= MOBILE POLISH ================= */
 
 @media(max-width:768px){
 
 header{
-padding:15px 5%;
-flex-direction:column;
+padding:12px 5%;
+}
+
+.logo{
+font-size:20px;
 }
 
 nav{
-margin-top:10px;
+display:none;
 }
 
-nav a{
-margin:8px 12px;
+.menu-toggle{
+display:block;
+}
+
+.mobile-nav{
+display:none;
+flex-direction:column;
+background:white;
+position:absolute;
+top:60px;
+left:0;
+width:100%;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+.mobile-nav a{
+padding:15px;
+border-bottom:1px solid #eee;
+text-decoration:none;
+color:#333;
+}
+
+.mobile-nav a:hover{
+background:#f5f5f5;
 }
 
 .hero{
@@ -312,43 +253,41 @@ height:80vh;
 }
 
 .hero h1{
-font-size:28px;
-}
-
-.hero p{
-font-size:16px;
-}
-
-section{
-padding:70px 5%;
-}
-
-.section-title{
 font-size:26px;
 }
 
-.section-sub{
+.hero p{
 font-size:15px;
-margin-bottom:30px;
+}
+
+section{
+padding:60px 5%;
+}
+
+.section-title{
+font-size:24px;
 }
 
 .events-grid{
 grid-template-columns:1fr;
+gap:25px;
 }
 
-.book{
-width:100%;
-max-width:320px;
-height:260px;
-}
-
-.page .front,
-.page .back{
+.event-card{
 padding:20px;
 }
 
+.event-card h3{
+font-size:18px;
+}
+
+.event-date{
+font-size:12px;
+padding:6px 12px;
+}
+
 .cta{
-padding:70px 5%;
+padding:60px 5%;
 }
 
 footer{
@@ -364,12 +303,21 @@ padding:35px 15px;
 
 <header>
 <div class="logo">EDHAA</div>
+
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
 <nav>
 <a href="#solution">Solution</a>
 <a href="#events">Events</a>
-<a href="#story">Our Story</a>
 <a href="#contact">Contact</a>
 </nav>
+
+<div class="mobile-nav" id="mobileNav">
+<a href="#solution" onclick="toggleMenu()">Solution</a>
+<a href="#events" onclick="toggleMenu()">Events</a>
+<a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
 </header>
 
 <section class="hero">
@@ -392,48 +340,19 @@ padding:35px 15px;
 
 <section id="events">
 <h2 class="section-title">Upcoming Events</h2>
-
 <div class="events-grid">
 <div class="event-card">
 <div class="event-date">15 Feb 2026</div>
 <h3>Confidence Building Workshop</h3>
 <p>Interactive leadership games for kids.</p>
-<div class="event-location">📍 Baner, Pune</div>
+<div>📍 Baner, Pune</div>
 </div>
 
 <div class="event-card">
 <div class="event-date">22 Feb 2026</div>
 <h3>Creative Thinking Lab</h3>
 <p>Fun imagination challenges.</p>
-<div class="event-location">📍 Wakad, Pune</div>
-</div>
-</div>
-</section>
-
-<section id="story" class="book-section">
-<h2 class="section-title">Our Story</h2>
-
-<div class="book-wrapper">
-<div class="book">
-
-<div class="page cover">
-<div class="front">
-<img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f" class="cover-img">
-<div class="cover-text"><h2>EDHAA</h2></div>
-</div>
-<div class="back"></div>
-</div>
-
-<div class="page">
-<div class="front"><h3>The Observation</h3><p>Children spending weekends on screens.</p></div>
-<div class="back"></div>
-</div>
-
-<div class="page">
-<div class="front"><h3>The Vision</h3><p>Structured joyful growth.</p></div>
-<div class="back"></div>
-</div>
-
+<div>📍 Wakad, Pune</div>
 </div>
 </div>
 </section>
@@ -453,13 +372,10 @@ padding:35px 15px;
 </footer>
 
 <script>
-const pages = document.querySelectorAll(".page");
-pages.forEach((page, index) => {
-page.addEventListener("click", () => {
-page.classList.add("flipped");
-page.style.zIndex = index;
-});
-});
+function toggleMenu(){
+const nav = document.getElementById("mobileNav");
+nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+}
 </script>
 
 </body>
